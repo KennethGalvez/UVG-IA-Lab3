@@ -1,5 +1,6 @@
 import re
 
+
 def clean_dataset(filename):
     with open(filename, 'r') as file:
         data = file.readlines()
@@ -14,6 +15,7 @@ def clean_dataset(filename):
     with open('cleaned_' + filename, 'w') as file:
         for d in cleaned_data:
             file.write(d)
+
 
 filename = 'entrenamiento.txt'
 clean_dataset(filename)
