@@ -87,4 +87,4 @@ for i in range(len(train)):
         train_correct_predictions += 1
 
 train_accuracy = train_correct_predictions / len(train)
-print("Accuracy en el subset de entrenamiento:", train_accuracy)
+print("Accuracy en el subset de training:", train_accuracy)
