@@ -88,3 +88,33 @@ for i in range(len(train)):
 
 train_accuracy = train_correct_predictions / len(train)
 print("Accuracy en el subset de training:", train_accuracy)
+
+
+# Creamos la nueva función para clasificar las palabras recibidas
+def classify_message(message, words, n_ham_messages, n_spam_messages):
+    prob_ham_message = 1
+    prob_spam_message = 1
+    message = message.split(" ")
+    for word in message:
+        if word in words:
+            prob_ham_message *= words[word]['ham']
+            prob_spam_message *= words[word]['spam']
+        else:
+            prob_ham_message *= 1 / (n_ham_messages + 2)
+            prob_spam_message *= 1 / (n_spam_messages + 2)
+    if prob_spam_message > prob_ham_message:
+        return 'spam', prob_spam_message / (prob_spam_message + prob_ham_message)
+    else:
+        return 'ham', prob_ham_message / (prob_spam_message + prob_ham_message)
+
+
+# Recibimos mensajes nuevos y los clasificamos
+while True:
+    message = input("\nIngrese un mensaje para definir si es spam o ham: ")
+    label, prob = classify_message(
+        message, words, n_ham_messages, n_spam_messages)
+    print("\nEl mensaje es clasificado como: ", label)
+    print("La probabilidad de ser", label, "es de: ", prob)
+    continue_input = input("\n¿Desea ingresar otro mensaje? (Sí/No)").lower()
+    if continue_input == "no":
+        break
