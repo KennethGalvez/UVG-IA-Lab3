@@ -3,9 +3,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
+# Task 1.2 y 1.3
 
-# Task 1.2
-def task1_2():
+
+def task1_2_3():
     # Cargamos los datos desde el archivo .txt
     data = []
     with open("cleaned_entrenamiento.txt", "r") as f:
@@ -97,9 +98,6 @@ def task1_2():
     train_accuracy = train_correct_predictions / len(train)
     print("Accuracy en el subset de training:", train_accuracy)
 
-
-# Task 1.3
-def task1_3():
     # Contamos la frecuencia de cada palabra en los mensajes ham y spam
     words = {}
     for label, message in train:
@@ -131,10 +129,12 @@ def task1_3():
     # Recibimos mensajes nuevos y los clasificamos
     while True:
         message = input("\nIngrese un mensaje para definir si es spam o ham: ")
-        label, prob = classify_message(message, words, n_ham_messages, n_spam_messages)
+        label, prob = classify_message(
+            message, words, n_ham_messages, n_spam_messages)
         print("\nEl mensaje es clasificado como: ", label)
         print("La probabilidad de ser", label, "es de: ", prob)
-        continue_input = input("\n¿Desea ingresar otro mensaje? (Sí/No)").lower()
+        continue_input = input(
+            "\n¿Desea ingresar otro mensaje? (Sí/No)").lower()
         if continue_input == "no":
             break
 
@@ -177,24 +177,21 @@ def task1_4():
 while True:
     print("--------------------LAb_3_IA-----------------------")
     print("Menu")
-    print("1. Task 1.2 ---> Construcción del modelo")
-    print("2. Task 1.3 ---> Clasificación de mensajes futuros")
-    print("3. Task 1.4 ---> Comparación con Librerías\n")
+    print("1. Task 1.2 y 1.3---> Construcción del modelo y Clasificación de mensajes futuros")
+    print("2. Task 1.4 ---> Comparación con Librerías\n")
 
     try:
         respuesta = int(input("Seleccione la opción: \n"))
 
         if respuesta == 1:
-            task1_2()
+            task1_2_3()
         elif respuesta == 2:
-            task1_3()
-        elif respuesta == 3:
             task1_4()
         else:
-            print("Opción inválida. Intente de nuevo.+\n")
+            print("\nOpción inválida. Intente de nuevo.+\n")
     except ValueError:
-        print("Error: seleccione una opción válida (número entero).\n")
+        print("\nError: seleccione una opción válida (número entero).\n")
 
-    continuar = input("Presione Enter para continuar o 'q' para salir.\n")
+    continuar = input("\nPresione Enter para continuar o 'q' para salir.\n")
     if continuar == "q":
         break
