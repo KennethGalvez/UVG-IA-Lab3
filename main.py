@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
 
+# Task 1.2
 # Cargamos los datos desde el archivo .txt
 data = []
 with open("cleaned_entrenamiento.txt", "r") as f:
@@ -96,6 +97,7 @@ train_accuracy = train_correct_predictions / len(train)
 print("Accuracy en el subset de training:", train_accuracy)
 
 
+# Task 1.3
 # Creamos la nueva función para clasificar las palabras recibidas
 def classify_message(message, words, n_ham_messages, n_spam_messages):
     prob_ham_message = 1
