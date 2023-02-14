@@ -179,18 +179,22 @@ while True:
     print("Menu")
     print("1. Task 1.2 ---> Construcción del modelo")
     print("2. Task 1.3 ---> Clasificación de mensajes futuros")
-    print("3. Task 1.4 ---> Comparación con Librerías")
-    respuesta = int(input("Seleccione la opcion: "))
+    print("3. Task 1.4 ---> Comparación con Librerías\n")
 
-    if respuesta == 1:
-        task1_2()
-    elif respuesta == 2:
-        task1_3()
-    elif respuesta == 3:
-        task1_4()
-    else:
-        print("Opción inválida. Intente de nuevo.")
+    try:
+        respuesta = int(input("Seleccione la opción: \n"))
 
-    continuar = input("Presione Enter para continuar o 'q' para salir.")
+        if respuesta == 1:
+            task1_2()
+        elif respuesta == 2:
+            task1_3()
+        elif respuesta == 3:
+            task1_4()
+        else:
+            print("Opción inválida. Intente de nuevo.+\n")
+    except ValueError:
+        print("Error: seleccione una opción válida (número entero).\n")
+
+    continuar = input("Presione Enter para continuar o 'q' para salir.\n")
     if continuar == "q":
         break
