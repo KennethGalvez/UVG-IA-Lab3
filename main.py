@@ -178,7 +178,8 @@ while True:
     print("--------------------LAb_3_IA-----------------------")
     print("Menu")
     print("1. Task 1.2 y 1.3---> Construcción del modelo y Clasificación de mensajes futuros")
-    print("2. Task 1.4 ---> Comparación con Librerías\n")
+    print("2. Task 1.4 ---> Comparación con Librerías")
+    print("3. Analisis de Comparación de Librerias\n")
 
     try:
         respuesta = int(input("Seleccione la opción: \n"))
@@ -187,6 +188,16 @@ while True:
             task1_2_3()
         elif respuesta == 2:
             task1_4()
+        elif respuesta == 3:
+            print("¿Cuál implementación lo hizo mejor? ¿Su implementación o la de la librería?")
+            print("Nuestra implementación")
+            print("Accuracy en el subset de testing: 0.6630727762803235 / Accuracy en el subset de training: 0.7496629213483146")
+            print("Libreria")
+            print("Accuracy en el subset de training: 0.9930337078651685 / Accuracy en el subset de testing: 0.9820305480682839")
+            print("Si comparamos el resultado de ambas implementaciones se observa como la librería tuvo mas aciertos llegando a tener casi el total de precision en ambas pruebas \n")
+            print("¿Por qué cree que se debe esta diferencia?")
+            print("La diferencia se debe a que para el contexto de las pruebas, la libreria es mejor que nuestra implementacion")
+            print("El modelo de la libreria es mejor que nuestra implementación, ya que utiliza el algoritmo de Naive Bayes multinomial, que está diseñado específicamente para problemas de clasificación de texto. Además, la libreria utiliza la técnica de CountVectorizer para convertir los mensajes de texto en una representación numérica, lo que puede mejorar la precisión de las predicciones en comparación con nuestra implementacion, que utiliza una implementación personalizada de un clasificador de Bayes. La libreria también utiliza la división de entrenamiento y prueba integrada de scikit-learn, mientras que nuestra implementacion realiza una división manual, lo que puede resultar en una selección de datos subóptima para entrenar y evaluar el modelo.")
         else:
             print("\nOpción inválida. Intente de nuevo.+\n")
     except ValueError:
